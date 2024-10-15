@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis of Livability and Comfort in Australia</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .title-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: white;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .visualization-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .visualization {
+            width: 100%; /* 确保宽度适应容器 */
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-sizing: border-box; /* 确保 padding 不影响宽度 */
+        }
+
+        .description {
+            width: 35%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .centered-visualizations {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .text-box {
+            width: 95%;  /* 改为 95% 避免溢出 */
+            margin: 10px auto 0;  /* 居中 */
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .visualization-with-description {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        #vis, #vis2, #vis3, #vis4, #vis5, #vis6 {
+            margin: 0 auto;
+            max-width: 100%; /* 确保图表不超过容器 */
+        }
+
+        .vis3-description {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .vis3-visualization {
+            width: 65%;
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<div class="title-container">
+    <h1>Analysis of Livability and Comfort in Australia</h1>
+    <div class="subtitle">By: Xuancheng Pan on 15/10/2024 | FIT3179 Data Visualisation 2</div>
+</div>
+
+<!-- Visualization 1 on the left, description on the right -->
+<div class="container">
+    <div class="visualization-box">
+        <div class="visualization">
+            <h2>Green Space In Melbourne, Victoria</h2>
+            <div id="vis"></div>
+        </div>
+        <div class="description">
+            <h3>Description</h3>
+            <p>
+                This visualization showcases the major green open spaces in Victoria,
+                highlighting how the region, particularly Melbourne and its surrounding
+                densely populated areas, has maintained an abundance of green spaces.
+                Victoria not only boasts rich vegetation in its mountainous areas,
+                but through effective urban planning, it has successfully integrated nature with
+                urban living in the city. Residents can enjoy access to high-quality green spaces,
+                including lawns, parks, and gardens. Melbourne’s extensive green areas not only
+                enhance the city’s environment but also provide residents with recreational spaces,
+                boosting happiness and overall well-being. These green spaces also play a crucial
+                role in the city’s ecosystem, improving air quality, regulating the climate, and preserving
+                local biodiversity. This distribution underscores Victoria’s excellence in sustainability
+                and livability.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Visualization 6 on the right, description on the left -->
+<div class="container">
+    <div class="visualization-box">
+        <div class="description">
+            <h3>Description</h3>
+            <p>
+                This visualization highlights the green areas in Sydney, reflecting the city’s dedication to environmental preservation despite being Australia’s bustling financial hub. While Sydney is known for its dense population and economic significance, it has successfully integrated green spaces into its urban fabric. From public parks to nature reserves, these areas not only enhance the city’s aesthetic appeal but also provide crucial environmental benefits. As a financial center with heavy urbanization, maintaining green spaces is essential for promoting biodiversity, improving air quality, and creating a healthier, more livable environment. These efforts underscore Sydney’s commitment to balancing economic development with environmental sustainability, making it a city where both people and nature can thrive. Additionally, these green spaces provide an escape from the city’s fast-paced lifestyle, offering residents and visitors alike areas for relaxation and recreation amidst the urban landscape.
+            </p>
+        </div>
+        <div class="visualization">
+            <h2>Green Space in Sydney, New South Wales</h2>
+            <div id="vis6"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualization 2 and 5 side by side -->
+<div class="container">
+    <div class="two-columns">
+        <div class="column">
+            <h2>Average Temperature In Australia</h2>
+            <div id="vis2"></div>
+            <div class="text-box">
+                <h3>Description</h3>
+                <p>This visualization presents the average monthly temperatures in major Australian cities, with the color blocks clearly illustrating the temperature variations across different regions. The darker the red, the higher the temperature. Australia, with its favorable geographical location, enjoys a pleasant climate with mild seasons. Extreme low or high temperatures are rare, making it an ideal place to live. Even in the summer, the nights remain comfortably cool, providing relief from the daytime heat. The white blocks in the visualization indicate missing or incomplete data for some months in certain regions, but overall, the visualization effectively captures the temperature trends across Australian cities throughout the year.</p>
+            </div>
+        </div>
+        <div class="column">
+            <h2>The Growing Importance of Green Spaces: Tree Canopy Coverage as a Key Factor in Suburb Choice Across Australia</h2>
+            <div class="text-box">
+                <h3>Description</h3>
+                <p>This visualization shows the ranking of Australia’s states by the proportion of their population living in leafy suburbs with over 20% tree canopy coverage. It highlights how green spaces are an important part of urban life in Australia, with many residents preferring to live in areas surrounded by nature. States with higher green coverage are seen as offering better living environments, contributing to residents’ well-being and happiness. This underscores the importance of maintaining and expanding green areas to enhance the quality of life in Australia’s cities.</p>
+            </div>
+            <div id="vis5"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualization 4 -->
+<div class="container">
+    <div class="centered-visualizations">
+        <div class="visualization">
+            <h2>Rainfall by Location over time in Australia</h2>
+            <div id="vis4"></div>
+            <div class="text-box">
+                <h3>Description</h3>
+                <p>This visualization provides an interactive view of rainfall patterns across various regions in Australia over time. By observing the rainfall data, viewers can explore how precipitation varies across different locations throughout the year. Australia benefits from abundant rainfall, which supports vegetation growth and maintains ecosystems, while also providing favorable conditions for people’s daily lives. The rainfall is generally well-balanced, ensuring that it meets the needs of nature and humans without causing excessive flooding. The interactive legend allows users to focus on specific locations, highlighting the rainfall trends for the selected region while reducing the opacity of others. The time filter also enables users to explore rainfall data for specific periods, offering insights into seasonal changes and long-term trends.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualization 3 with description on the left -->
+<div class="container">
+    <div class="visualization-with-description">
+        <div class="vis3-description">
+            <h3>Description</h3>
+            <p>
+                This visualization presents the average PM10 levels (particulate matter with a diameter of 10 micrometers or less) for different countries across various regions, from 2010 to 2021. By selecting specific WHO regions, users can explore how air quality trends differ between countries over time. PM10 is an important indicator of air pollution, and high levels can pose health risks, particularly affecting respiratory functions. This chart provides insights into the variations in air quality across regions, highlighting countries with consistently high or low PM10 levels. The interactive legend allows users to focus on specific countries while deemphasizing others, making it easier to compare air quality trends between selected countries.
+            </p>
+        </div>
+        <div class="vis3-visualization">
+            <h2>Worldwide Airquality by PM10</h2>
+            <div id="vis3"></div>
+        </div>
+    </div>
+</div>
+
+<script src="vis.js"></script>
+
+</body>
+</html>
